@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Javascript中的注释
+        // 这是单行注释
+        /* 这是多行注释 */
+
+        // 标识符和关键字
+        /*
+            以下代码中
+            标识符 for var(代表任何数据类型)
+            关键字 i alert 
+         */
+        /* for(var i = 0;i < 10; i++) {
+            alert("hello world!");
+        } */
+
+        /*
+            和Java的区别
+            Java语言是强语言，有编译阶段和运行阶段，有特定的数据类型
+            例如：定义一个int数据类型变量，那么直到程序结束这个变量一直都是int类型，不会有其他改变
+
+            Javascript语言是弱语言，没有编辑阶段，由浏览器来进行解释，没有特定的数据类型
+            var代表所有数据类型，默认为undefined
+            因此没有那种常规的调试
+         */
+        // 设置一个函数
+        /*
+            函数没有确定的数据类型，也就是说可以放任意数据类型，返回值也是任意数据类型
+            函数声明之后必须要调用才会显示
+         */
+        function sum(a,b) {
+            return a + b;
+        }
+        // 调用函数
+        // alert(sum(100,200));
+        var a;
+        console.log(a);</script>
+
+    </script>
+    <!-- 然而一般在script脚本块里编写的函数要放到响应事件中 -->
+    <input type="button" value="按钮" onclick="alert(sum(100,200))">
+</body>
+</html>
