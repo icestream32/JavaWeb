@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1、==和===有什么区别？
+                == 等同运算符，只比较值是否相等
+                === 全等运算符，既比较值是否相等，同时又比较数据类型是否相同
+            2、null undefined NaN的区别？
+                类型都是不一样的
+                null和undefined是等同的关系。
+        */
+
+        var v1 = true;
+        var v2 = 1;
+
+        // == 优点类似于Java语言种的equals方法
+        console.log(v1 == v2) // true
+
+        console.log(v1 === v2) // false
+
+        var v3 = 1;
+        console.log(v3 === v1) // true
+
+        // null的类型属于原始类型，typeof运算符的结果是：object
+        console.log(typeof null) // "object"
+        console.log(typeof NaN) // "number"
+        console.log(typeof undefined) // "undefined"
+
+        console.log(null == NaN) // false
+        console.log(null == undefined) // true
+        console.log(NaN == undefined) // false
+
+        console.log(null === NaN) // false
+        console.log(null === undefined) // false
+        console.log(NaN === undefined) // false
+    </script>
+</body>
+</html>
