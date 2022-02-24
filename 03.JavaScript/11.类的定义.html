@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1、在JS中怎么定义类？包括两种方式
+                第一种方式：
+                    function 类名(形式参数列表) {
+                        
+                        this.属性名 = 参数;
+                        this.属性名 = 参数;
+
+                        this.方法名 = function() {
+
+                        }
+                    }
+                
+                第二种方式：(为了和函数区分开来，我选择这种)
+                    类名 = function(形式参数列表) {
+                        
+                        this.属性名 = 参数;
+                        this.属性名 = 参数;
+
+                        this.方法名 = function() {
+
+                        }
+                    }
+        */
+
+        // 计时一个函数，同时优势一个类的定义，函数名是：sayHello，类名是：sayHello
+        /* function sayHello() {
+
+        } */
+
+        // 关键看你怎么调用，如果没有使用new运算符嗲用，表示普通函数的嗲用，不会在堆中new对象
+        // sayHello();
+
+        // 使用new运算符去调用这个函数，显然是把它当作一个类来看待，这个会导致浏览器的堆当中开辟一个新对象！
+        // var obj = new sayHello(); // obj是一个引用，保存内存地址指向对象
+
+        // 正式定义一个对象
+        Emp = function(empno,ename,sal) {
+            
+            // 属性
+            this.empno = empno;
+            this.ename = ename;
+            this.sal = sal;
+
+            // 方法
+            this.work = function(){
+                console.log(this.ename + " is working!!")
+            }
+
+        }
+
+        // 后期动态扩展的方法
+        // 不过要放在调用的前面
+        Emp.prototype.getSal = function() {
+                    return this.sal;
+                }
+        
+        // 创建对象
+        var e = new Emp();
+        e.work();
+
+        var e = new Emp(111);
+        e.work();
+
+        var e = new Emp(222,"KING");
+        e.work();
+
+        var e = new Emp(3333,"SMITH",800);
+        console.log(e.getSal()) // 800
+        e.work();
+
+        
+    </script>
+</body>
+</html>
