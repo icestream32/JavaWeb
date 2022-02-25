@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            load事件在整个网页加载完毕之后执行
+            正常条件下我们会在body标签中使用onload事件
+            但现在有一种更加先进的方法:
+            直接使用window类调用onload方法
+        */
+        /* 
+            案例：在scipt标签后使用input标签
+            JavaScript代码遵循自上而下的选择，如果先使用document类获取input的话会报空指针异常
+            因此需要load预先加载
+        */
+        // 以下代码有问题，事件不能完美运行
+        window.onload = function() {
+            // 页面加载完毕之后才会执行这里的代码，此时id="btn"的元素已经加载到浏览器内存了
+            document.getElementById("btn").onclick = function() {
+                console.log("按钮被点击了！")
+            }
+        }
+        
+        
+    </script>
+    <input type="button" value="hello" id="btn"/>
+</body>
+</html>
