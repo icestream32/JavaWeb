@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            之后的开发调用事件句柄都采用以下这些方式
+        */
+        window.onload = function() {
+            document.getElementById("btn1").onclick = function() {
+                console.log("按钮1被点击了！")
+            }
+
+            document.getElementById("btn2").onclick = function() {
+                console.log("按钮2被点击了！")
+            }
+
+            document.getElementById("btn3").onclick = function() {
+                console.log("按钮3被点击了！")
+            }
+        }
+    </script>
+    <input type="button" value="按钮1" id="btn1"/>
+    <br><br>
+    <input type="button" value="按钮2" id="btn2"/>
+    <br><br>
+    <input type="button" value="按钮3" id="btn3"/>
+</body>
+</html>
