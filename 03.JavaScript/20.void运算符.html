@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            document.getElementById("chaolianjie").onclick = function() {
+                alert("JS代码执行了！")
+            }
+        }
+    </script>
+    当我们想让一个超链接点击之后执行事件和不跳转时，可以使用void运算符
+    <br><br>
+    <!-- 
+        void运算发执行表达式，但是不返回任何结果，即使有返回结果也不返回。
+        记忆：
+            href后面添加一个：javascript:void(0)
+            表示把href的连接地址废弃掉。
+     -->
+    <a href="javascript:void(0)" id="chaolianjie">这是一个超链接</a>
+</body>
+</html>
