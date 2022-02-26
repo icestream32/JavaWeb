@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function goBaidu() {
+            // window.location.href = "http://www.baidu.com";
+            window.location = "http://www.jd.com";
+        }
+    </script>
+    <!-- 
+        挑战页面可以通过多种方式：（这些都是发送请求！！！）
+            第一种方式：直接在浏览器地址栏上写url、
+            第二种方式：可以直接点超链接
+            第三种方式：提交表单
+            第四种方式：window.open(url.target)
+            第五种方式：JS代码，window.location.href
+     -->
+    <input type="button" value="百度" onclick="goBaidu()">
+</body>
+</html>
