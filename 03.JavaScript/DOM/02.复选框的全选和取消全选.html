@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            var firstCElt = document.getElementById("firstC")
+            firstCElt.onclick = function() {
+
+                var aihaos = document.getElementsByName("aihao");
+                for (var i in aihaos) {
+                    // checkbox中有一个checked属性
+                    // 如果复选框被选中,则返回true,如果复选框被取消,则返回false
+                    // 将全选框的状态赋值到复选框中
+                    aihaos[i].checked = firstCElt.checked;
+                }
+
+                // 给每一个name="aihao"复选框绑定鼠标单击事件
+                for (var i = 0; i < aihaos.length; i++) {
+                    aihaos[i].onclick = function() {
+                        // 在这里控制第一个复选框的选中状态
+                        // 第一个复选框选中还是不选中取决于什么?
+                        // 所有的aihao复选框的总数量.如果和总选中的数量相同的时候,第一个复选框选中,反之取消.
+                        var count = aihaos.length; // 总数量
+                        var checkedCount = 0; // 默认选中的数量0
+                        for (var j = 0; j < aihaos.length; j++) {
+                            if (aihaos[j].checked) {
+                                checkedCount++;
+                            }
+                        } // 循环结束之后,所有的被选中的复选框数量就统计完了.
+                        // 第一个复选框是选中呢,还是取消选中呢? 
+                        firstCElt.checked = (count == checkedCount);
+                    }
+                }
+            } 
+        }
+    </script>
+    <input type="checkbox" name="" id="firstC">
+    <br>
+    <input type="checkbox" name="aihao" id="smoke">抽烟
+    <br>
+    <input type="checkbox" name="aihao" id="drink">喝酒
+    <br>
+    <input type="checkbox" name="aihao" id="firehair">烫头
+</body>
+</html>
