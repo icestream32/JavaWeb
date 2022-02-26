@@ -7,11 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- 开启一个窗口，默认是开启一个新窗口 -->
     <input type="button" value="开启百度" onclick="window.open('http://www.baidu.com')"/>
+    <!-- 开启一个窗口，在当前窗口中显示 -->
     <input type="button" value="开启百度" onclick="window.open('http://www.baidu.com', '_self')"/>
+    <!-- 开启一个窗口，在新窗口中显示 -->
     <input type="button" value="开启百度" onclick="window.open('http://www.baidu.com', '_blank')"/>
+    <!-- 开启一个窗口，在父窗口中显示 -->
     <input type="button" value="开启百度" onclick="window.open('http://www.baidu.com', '_parent')"/>
+    <!-- 开启一个窗口，在顶级窗口中显示 -->
     <input type="button" value="开启百度" onclick="window.open('http://www.baidu.com', '_top')"/>
 </body>
 </html>
