@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            document.getElementById("displayTimeBtn").onclick = function() {
+                // 获取系统当前时间,把时间显示到div中
+                // 周期函数,setInterval("函数",间隔毫秒数)
+                // 每隔1s调用一次displayTime()函数
+                v = window.setInterval("displayTime()",1000)
+            }
+
+            document.getElementById("stopTimeBtn").onclick = function() {
+                // 停止周期性的调用
+                window.clearInterval(v);
+            }
+        }
+        // 在这里定义需要周期使用的函数
+        function displayTime() {
+            var nowTime = new Date();
+            document.getElementById("timediv").innerHTML = nowTime.toLocaleString();
+        }
+    </script>
+
+    <input type="button" value="显示系统当前时间" id="displayTimeBtn"/>
+    <input type="button" value="咋瓦鲁多" id="stopTimeBtn"/> 
+
+    <div id="timediv"></div>
+</body>
+</html>
