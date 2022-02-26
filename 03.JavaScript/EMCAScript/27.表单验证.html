@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 错误提示信息统一12号字体，红色 -->
+    <style>
+        span {
+            font-size: 12px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /* 
+            表单提交需求：
+                1、用户名不能为空。
+                2、用户名必须在6-14位之间
+                3、用户名只能由数字和字母组成，不能含有其他符号（正则表达式）
+                4、密码和确认密码一致
+                5、统一失去焦点验证
+                6、错误提示信息统一在span标签中提示，并且要求字体12号，红色
+                7、文本框再次获得焦点后，清空错误提示信息
+                8、最终表单中所有项均合法方可提交
+        */
+        window.onload = function() {
+            var usernameElt = document.getElementById("username");
+            var usernameErrorSpan = document.getElementById("userError");
+            usernameElt.onblur = function() {
+                // 用户名长度必须在6-14位之间
+                // 创建正则表达式对象
+                var repExp = /^[a-zA-Z0-9]+$/;
+                
+                // 用户名不能为空
+                // 获取用户名
+                var uname = usernameElt.value;
+                // 清空前后空白
+                uname = uname.trim();
+                // 判断用户是否为空
+                if (uname == "") {
+                    usernameErrorSpan.innerHTML = "用户名不能为空"
+                } else if (uname.length < 5 || uname.length > 15) { 
+                    usernameErrorSpan.innerHTML = "用户名长度应在6-14位之间"
+                    } else if (!repExp.test(uname)) {
+                        // 用户名只能由字母和数字组成，不能有其他符号
+                        // 程序运行到这里说明用户名既不为空长度也适合
+                        usernameErrorSpan.innerHTML = "用户名只能由字母和数字组成";
+                    }
+            }
+            // 密码验证
+            var passwordElt = document.getElementById("comfirmpwd");
+            var pwdErrorSpan = document.getElementById("pwdError");
+            passwordElt.onblur = function() {
+                // 获取密码
+                var password = document.getElementById("pwd").value;
+                // 获取确认密码
+                var comfirm = document.getElementById("comfirmpwd").value; 
+                // 判断两次密码是否相等
+                if (password != comfirm) {
+                    pwdErrorSpan.innerHTML = "密码和确认密码不一致";
+                }
+            }
+            // 获得焦点后清空错误信息
+            usernameElt.onfocus = function() {
+                usernameErrorSpan.innerHTML = "";
+            }
+            passwordElt.onfocus = function() {
+                pwdErrorSpan.innerHTML = "";
+            }
+
+            // 利用JS代码使用commit
+            document.getElementById("regbtn").onclick = function() {
+                // 验证用户名，怎么验证用户名：让用户名文本框失去焦点
+                // 可以使用JS代码主动触发事件
+                usernameElt.focus(); // 触发文本框的获取焦点事件
+                usernameElt.blur(); // 出发文本框的失去焦点事件
+                // 验证密码，让确认密码失去焦点
+                passwordElt.focus();
+                passwordElt.blur();
+                // 当所有的span都是空表示表单合法
+                if (usernameErrorSpan.innerHTML == "" && pwdErrorSpan.innerHTML == "") {
+                    // 提交
+                    var formObj = document.getElementById("userForm");
+                    // 通过调用submit()方法来完成表单的提交
+                    
+                    formObj.submit();
+                }
+
+            }
+        }
+    </script>
+
+    <!-- 建立提交表单 -->
+    <form action="http://localhost:3306/library" id="userForm">
+        用户名<input type="text" name="username" id="username"><span id="userError"></span>
+        <br>
+        密码<input type="password" name="userpwd" id="pwd">
+        <br>
+        确认密码<input type="password" id="comfirmpwd"><span id="pwdError"></span>
+        <br>
+        <input type="button" value="注册" id="regbtn">
+    </form>
+</body>
+</html>
