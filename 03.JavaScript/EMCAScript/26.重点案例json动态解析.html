@@ -1,0 +1,73 @@
+<!-- 该案例十分的重要，是今后前后端连接的基础 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px black solid;
+            font-size: 20px;
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 从Java传过来的json字符串
+        var fromJava = "{\"tocal\" : 3,\"students\" : [{\"name\" : \"zhangsan\",\"age\" : 21},{\"name\" : \"lisi\",\"age\" : 20},{\"name\" : \"wangwu\",\"age\" : 19}]}";
+        window.onload = function() {
+            document.getElementById("displayBtn").onclick = function() {
+
+                // 利用eval函数将字符串当成script代码执行，生成json对象
+                window.eval("var stuData =" + fromJava);
+
+                // 生成总记录条数
+                document.getElementById("tocalMessage").innerHTML = stuData.tocal;
+
+                // 生成学生名单
+                var stus = stuData.students;
+                var html = "";
+                for (var i = 0; i < stus.length; i++) {
+                    // 拼接html语句
+                    html+="<tr>"
+                        html+="<th>"+i+"</th>"
+                        html+="<th>"+stus[i].name+"</th>"
+                        html+="<th>"+stus[i].age+"</th>"
+                    html+="</tr>"
+                }
+                // 执行HTMl语句
+                document.getElementById("stubody").innerHTML = html;
+            }
+        }
+    </script>
+    <!-- 
+        案例：通过Java后端的传入的json字符串动态解析数据信息，完成数据交互
+     -->
+    <!-- 创建一个按钮，用于启动信息 -->
+    <input type="button" value="显示学生信息" id="displayBtn">
+    <!-- 创建一个表 -->
+    <table id="">
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tbody id="stubody">
+            <!-- <tr>
+                <th>1</th>
+                <th>张三</th>
+                <th>20</th>
+            </tr>
+            <tr>
+                <th>2</th>
+                <th>李四</th>
+                <th>19</th> -->
+            </tr>
+        </tbody>
+    </table>
+    总条数：<span id="tocalMessage">0</span>条
+</body>
+</html>
