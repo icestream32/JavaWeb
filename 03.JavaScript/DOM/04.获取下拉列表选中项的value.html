@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            document.getElementById("province").onchange = function() {
+                // 这里的this指的是当前发生的结点对象,也就是说,下拉列表选中什么value就是什么
+                alert(this.value)
+            }
+        }
+    </script> 
+    <!-- 
+        只要前端浏览器能够获取到山东省的code,假设code=001,
+        那么后台Java程序执行sql语句的时候这样执行:
+            select * from t_city where code = '001';
+     -->   
+    <select name="" id="province">
+        <option value="">--请选择省份--</option>
+        <option value="001">河北省</option>
+        <option value="002">河南省</option>
+        <option value="003">山东省</option>
+        <option value="004">山西省</option>
+    </select>
+</body>
+</html>
