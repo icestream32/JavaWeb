@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            关于JS中的数组
+                1.怎么创建数组对象
+                2.怎么遍历数组
+                3.怎么修改数组中的某个元素
+                4.怎么读取数组中的某个元素
+                ...
+
+            java语言创建数组?
+                String[] strs = {"abc","def","xyz"};
+            
+            JS语言创建数组?
+                var strs = ["abc","def","xyz"];
+        */
+
+        // 创建数组的第一种方式
+        var a = []; // 创建一个长度为0的数组对象
+
+        // JS中数组的元素类型可以不一致
+        var a2 = [12,3,4,false,3.14,"string"];
+
+        // JS中数组的长度时可变的
+        console.log(a2[0])
+        console.log(a2[a2.length - 1]) // 数组中有length属性获取数组中元素的个数
+
+        // 没有扩容之前:[12,3,4,false,3.14,"string"]
+        // a2[100]会导致自动扩容:[12,3,4,false,3.14,"string",undefined,undefined...,1234]
+        a2[100] = 1234;
+        console.log("数组的长度 = " + a2.length)
+        console.log(a2[100]) // 1234
+        console.log(a2[99]) // undefined
+
+        // 创建数组的第二种方式
+        var arr1 = new Array(); // 创建长度为0的数组
+        console.log(arr1.length) // 0
+
+        var arr2 = new Array(3); // 创建长度为3的数组
+        console.log(arr2.length) // 3
+
+        var arr3 = new Array(1,2,3,45,56,7); // 创建有指定值的数组
+        console.log(arr3.length) // 6
+    </script>
+</body>
+</html>
