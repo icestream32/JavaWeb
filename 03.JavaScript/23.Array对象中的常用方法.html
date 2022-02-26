@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个长度为0的数组对象
+        var a = [];
+
+        console.log("数组的元素个数 = " + a.length)
+
+        // 添加元素
+        a.push(100);
+        a.push(200);
+        a.push(300);
+        a.push(10);
+        a.push(20);
+
+        console.log("数组的元素个数 = " + a.length)
+
+        a = [1,2,3];
+        // push方法:向数组中添加一个元素,并且加到末尾
+        a.push(false);
+        for (var i in a) {
+            console.log(a[i])
+        }
+        console.log(a.length) // 4
+        // pop方法:将数组末尾的元素弹出,并且数组长度-1
+        console.log(a.pop()) // false
+        console.log(a.pop()) // 3
+
+        // 翻转数组
+        var array = [1,5,65,6,57];
+        // 翻转
+        array.reverse();
+        // 遍历
+        for (var i in array) {
+            console.log("%%%%%====>" + array[i])
+        }
+
+        // 连续(将数组中的每一个元素以"$"连接成一个字符串)
+        var str = array.join("$");
+        console.log(str) // 57$6$65$5$1 
+
+    </script>
+</body>
+</html>
