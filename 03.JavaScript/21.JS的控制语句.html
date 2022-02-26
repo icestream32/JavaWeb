@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            JS控制语句：
+                选择语句：
+                    if
+                    switch
+                    ...
+                循环语句：
+                    for 
+                    while
+                    do...while
+                    ...
+                JS中特有的
+                    for...in
+                    with...
+        */
+        // 测试for in语句
+        // 定义一个类
+        Emp = function(empno,ename) {
+            this.empno = empno;
+            this.ename = ename;
+        }
+        // 创建对象
+        var a = new Emp(7936,"SMITH");
+        // 使用for in语句可以遍历对象的属性
+        for(var i in a) {
+            console.log(i);
+        }
+        // 定义一个数组
+        var arr = [12,30,40,50];
+        // 使用for in语句可以遍历数组,有点像Java中的增强for
+        // 注意:for in中的i是数组下标,Java增强for中的i是元素对象
+        for(var i in arr) {
+            console.log(arr[i])
+        }
+
+        // 测试with语句
+        // with语句可以在输出时省略引用
+        // 在输出很多个对象的属性值时可以用得到
+        with(a) {
+            console.log(empno + "," + ename)
+            console.log(empno + "," + ename)
+            console.log(empno + "," + ename)
+            console.log(empno + "," + ename)
+            console.log(empno + "," + ename)
+            console.log(empno + "," + ename)
+        }
+
+    </script>
+</body>
+</html>
