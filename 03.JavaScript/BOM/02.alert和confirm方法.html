@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sayHello() {
+            // 弹出消息款
+            window.alert("hello world!")
+        }
+
+        function del() {
+            // 删除数据之前一定要提示用户是否真的删除，用户点击了确定才表示真的删除
+            // 确认框
+            // confirm方法有个布尔类型返回值,如果确定为真,取消为假
+            /* var ok = window.confirm("亲,确认删除数据吗?");
+            if (ok) {
+                alert("正在删除数据中,请稍后...")
+            } */
+
+            // 优化版
+            if (window.confirm("亲,确认删除数据吗?")) {
+                alert("正在删除数据中,请稍后...")
+            }
+        }
+    </script>
+    <input type="button" value="hello" onclick="sayHello()">
+
+    <input type="button" value="删除" onclick="del()">
+</body>
+</html>
