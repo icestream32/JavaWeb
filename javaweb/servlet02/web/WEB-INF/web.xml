@@ -11,4 +11,29 @@
         <servlet-name>servlet02</servlet-name>
         <url-pattern>/servlet/LifeCycle</url-pattern>
     </servlet-mapping>
+
+    <!--
+        怎么让服务器启动的时候创建Servlet对象呢？
+
+        - 在servlet标签中添加<load-on-startup>子标签，在该子标签中填写整数，越小的整数优先级越高。
+    -->
+    <servlet>
+        <servlet-name>AServlet</servlet-name>
+        <servlet-class>com.servlet.javaweb.AServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AServlet</servlet-name>
+        <url-pattern>/servlet/AServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BServlet</servlet-name>
+        <servlet-class>com.servlet.javaweb.BServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BServlet</servlet-name>
+        <url-pattern>/servlet/BServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
