@@ -36,4 +36,13 @@
         <servlet-name>BServlet</servlet-name>
         <url-pattern>/servlet/BServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GenericServlet</servlet-name>
+        <servlet-class>com.servlet.javaweb.GenericServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GenericServlet</servlet-name>
+        <url-pattern>/servlet/GenericServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
