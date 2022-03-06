@@ -1,4 +1,4 @@
-package com.oa.util;
+package com.oa.utils;
 
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 public class DBUtil {
 
     // 获取资源绑定器
-    private static final ResourceBundle bundle = ResourceBundle.getBundle("/resource/jdbc");
+    private static final ResourceBundle bundle = ResourceBundle.getBundle("jdbc");
 
     private static final String driver = bundle.getString("driver");
     private static final String url = bundle.getString("url");
@@ -32,7 +32,7 @@ public class DBUtil {
      * @return 数据库连接对象
      * @throws SQLException 连接异常
      */
-    private static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url,username,password);
     }
 
@@ -42,7 +42,7 @@ public class DBUtil {
      * @param stmt 数据库操作对象
      * @param rs 处理结果集
      */
-    private static void close(Connection conn, Statement stmt, ResultSet rs) {
+    public static void close(Connection conn, Statement stmt, ResultSet rs) {
         if (rs != null) {
             try {
                 conn.close();
