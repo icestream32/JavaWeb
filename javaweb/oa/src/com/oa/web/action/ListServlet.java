@@ -35,7 +35,16 @@ public class ListServlet extends HttpServlet {
         out.println("    <meta name='viewport' content='width=device-width, initial-scale=1.0'>");
         out.println("    <title>部门列表页面</title>");
         out.println("</head>");
+
         out.println("<body>");
+        out.println("<script>");
+        out.println("        function del(dno) {");
+        out.println("    if (window.confirm('亲，删除之后不可恢复哦！')) {");
+        out.println("        document.location.href = '/oa/dept/delete?deptno=' + dno");
+        out.println("    }");
+        out.println("}");
+        out.println("</script>");
+
         out.println("    <h1 align='center'>部门列表</h1>");
         out.println("    <hr>");
         out.println("    <table border='1px' align='center' width='50%'>");
@@ -63,7 +72,7 @@ public class ListServlet extends HttpServlet {
                 out.println("            <td>"+deptno+"</td>");
                 out.println("            <td>"+dname+"</td>");
                 out.println("            <td>");
-                out.println("                <a href='javascript:void(0)' onclick='window.confirm('确认删除吗？')'>删除</a>");
+                out.println("                <a href='javascript:void(0)' onclick='del("+deptno+")'>删除</a>");
                 out.println("                <a href='edit.html'>修改</a>");
                 out.println("                <a href='"+contextPath+"/dept/detail?deptno="+deptno+"'>详情</a>");
                 out.println("            </td>");

@@ -7,6 +7,13 @@
     <title>部门列表页面</title>
 </head>
 <body>
+    <script>
+    function del(dno) {
+            if (window.confirm('亲，删除之后不可恢复哦！')) {
+                document.location.href = '/oa/dept/delete?deptno=' + dno
+            }
+        }
+    </script>
     <h1 align="center">部门列表</h1>
     <hr>
     <table border="1px" align="center" width="50%">
@@ -21,7 +28,7 @@
             <td>10</td>
             <td>销售部</td>
             <td>
-                <a href="javascript:void(0)" onclick="window.confirm('确认删除吗？')">删除</a>
+                <a href="javascript:void(0)" onclick="del(10)">删除</a>
                 <a href="edit.html">修改</a>
                 <a href="detail.html">详情</a>
             </td>
@@ -31,7 +38,7 @@
             <td>20</td>
             <td>研发部</td>
             <td>
-                <a href="javascript:void(0)" onclick="window.confirm('确认删除吗？')">删除</a>
+                <a href="javascript:void(0)" onclick='del(20)'>删除</a>
                 <a href="edit.html">修改</a>
                 <a href="detail.html">详情</a>
             </td>
@@ -41,7 +48,7 @@
             <td>30</td>
             <td>运营部</td>
             <td>
-                <a href="javascript:void(0)" onclick="window.confirm('确认删除吗？')">删除</a>
+                <a href="javascript:void(0)" onclick='del(30)'></a>删除</a>
                 <a href="edit.html">修改</a>
                 <a href="detail.html">详情</a>
             </td>
