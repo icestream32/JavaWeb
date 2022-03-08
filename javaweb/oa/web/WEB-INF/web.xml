@@ -4,6 +4,36 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
 
+    <!--更新部门信息-->
+    <servlet>
+        <servlet-name>update</servlet-name>
+        <servlet-class>com.oa.web.action.UpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/dept/update</url-pattern>
+    </servlet-mapping>
+
+    <!--修改部门信息-->
+    <servlet>
+        <servlet-name>edit</servlet-name>
+        <servlet-class>com.oa.web.action.EditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit</servlet-name>
+        <url-pattern>/dept/edit</url-pattern>
+    </servlet-mapping>
+
+    <!--添加部门信息-->
+    <servlet>
+        <servlet-name>add</servlet-name>
+        <servlet-class>com.oa.web.action.AddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/dept/add</url-pattern>
+    </servlet-mapping>
+
     <!--删除部门信息-->
     <servlet>
         <servlet-name>delete</servlet-name>
