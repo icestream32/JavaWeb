@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改部门信息页面</title>
+</head>
+<body>
+    <h1>输入需要修改的部门信息</h1>
+    <hr>
+    <form action="/oa/dept/update" method="get">
+        部门序号：<input type="text" value="2" readonly><br>
+        部门编号：<input type="text" value="20" readonly><br>
+        部门名称：<input type="text" value="销售部" name="dname"><br>
+        部门位置：<input type="text" value="北京" name="loc"><br>
+        <input type="submit" value="修改">
+    </form>
+</body>
+</html>
