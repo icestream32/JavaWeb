@@ -7,6 +7,12 @@
 		<title>欢迎使用OA系统</title>
 	</head>
 	<body>
-		<a href="<%=request.getContextPath()%>/dept/list">查看部门列表</a>
+		<h1>LOGIN PAGE</h1>
+		<hr>
+		<form action="<%=request.getContextPath()%>/dept/user" method="post">
+			<label>username</label><input type="text" name="username" > <br>
+			<label>password</label><input type="password" name="password"><br>
+			<input type="submit" value="LOGIN" >
+		</form>
 	</body>
 </html>

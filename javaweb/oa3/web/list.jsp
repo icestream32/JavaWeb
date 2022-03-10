@@ -52,8 +52,8 @@
 					<td><%=d.getDname()%></td>
 					<td>
 						<a href="javascript:void(0)" onclick="del(<%=d.getDeptno()%>)">删除</a>
-						<a href="<%=request.getContextPath()%>/dept/edit?deptno=<%=d.getDeptno()%>">修改</a>
-						<a href="<%=request.getContextPath()%>/dept/detail?deptno=<%=d.getDeptno()%>">详情</a>
+						<a href="<%=request.getContextPath()%>/dept/detail?f=edit&deptno=<%=d.getDeptno()%>">修改</a>
+						<a href="<%=request.getContextPath()%>/dept/detail?f=detail&deptno=<%=d.getDeptno()%>">详情</a>
 					</td>
 				</tr>
 			<%

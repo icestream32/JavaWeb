@@ -44,8 +44,6 @@ public class DeptServlet extends HttpServlet {
             doList(request,response);
         } else if ("/dept/add".equals(path)){
             doAdd(request,response);
-        } else if ("/dept/edit".equals(path)){
-            doEdit(request,response);
         } else if ("/dept/update".equals(path)){
             doUpdate(request,response);
         } else if ("/dept/delete".equals(path)){
@@ -53,7 +51,6 @@ public class DeptServlet extends HttpServlet {
         } else if ("/dept/detail".equals(path)){
             doDetail(request,response);
         }
-
 
     }
 
@@ -131,43 +128,6 @@ public class DeptServlet extends HttpServlet {
         } else {
             response.sendRedirect(""+request.getContextPath()+"/error.html");
         }
-    }
-
-    private void doEdit(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        // 创建一个部门对象
-        Dept dept = new Dept();
-
-        // 获取前端信息
-        String deptno = request.getParameter("deptno");
-
-        // 连接数据库更新信息
-        Connection conn = null;
-        PreparedStatement pt = null;
-        ResultSet rs = null;
-        try {
-            conn = DBUtil.getConnection();
-            String sql = "select dname,loc from dept where deptno = ?";
-            pt = conn.prepareStatement(sql);
-            pt.setString(1,deptno);
-            rs = pt.executeQuery();
-            if (rs.next()) {
-                String dname = rs.getString("dname");
-                String loc = rs.getString("loc");
-                dept.setDname(dname);
-                dept.setLoc(loc);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            DBUtil.close(conn,pt,rs);
-        }
-
-        // 将部门对象放入请求域中
-        request.setAttribute("dept",dept);
-        // 转发
-        request.getRequestDispatcher("/edit.jsp").forward(request,response);
-
     }
 
     private void doUpdate(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -271,10 +231,12 @@ public class DeptServlet extends HttpServlet {
             DBUtil.close(conn,pt,rs);
         }
 
+        // 通过获取参数选择转发到哪种页面
+        String f = request.getParameter("f");
         // 将部门对象放入请求域中
         request.setAttribute("dept",dept);
         // 转发
-        request.getRequestDispatcher("/detail.jsp").forward(request,response);
+        request.getRequestDispatcher("/" + f + ".jsp").forward(request,response);
     }
 
 }

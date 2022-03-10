@@ -18,7 +18,6 @@
 		部门编号：<%=deptno%> <br>
 		部门名称：<%=dept.getDname()%><br>
 		部门位置：<%=dept.getLoc()%><br>
-		
 		<input type="button" value="后退" onclick="window.history.back()"/>
 	</body>
 </html>
