@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<h1>新增部门</h1>
+		<h3>欢迎<%=session.getAttribute("username")%></h3>
 		<hr>
 		<form action="<%=request.getContextPath()%>/dept/add" method="post"/>
 		<label>

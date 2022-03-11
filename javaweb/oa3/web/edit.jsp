@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<h1>修改部门</h1>
+		<h3>欢迎<%=session.getAttribute("username")%></h3>
 		<hr>
 		<%--在这里获取后端发送过来的信息--%>
 		<%

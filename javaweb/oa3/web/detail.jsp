@@ -14,6 +14,7 @@
 	%>
 	<body>
 		<h1>部门详情</h1>
+		<h3>欢迎<%=session.getAttribute("username")%></h3>
 		<hr>
 		部门编号：<%=deptno%> <br>
 		部门名称：<%=dept.getDname()%><br>

@@ -31,6 +31,9 @@
 				}
 			}
 		</script>
+		<%--显示一个登录名--%>
+		<h3>欢迎<%=session.getAttribute("username")%></h3>
+		<a href="<%=request.getContextPath()%>/user/exit">[退出系统]</a>
 		<h1 align="center">部门列表</h1>
 		<hr>
 		<table border="1px" align="center" width="50%">
@@ -44,7 +47,8 @@
 			<%
 				int i = 0;
 				/*for循环遍历集合*/
-				for (Dept d : depts) {
+				if (depts != null) {
+					for (Dept d : depts) {
 			%>
 				<tr>
 					<td><%=++i%></td>
@@ -57,6 +61,7 @@
 					</td>
 				</tr>
 			<%
+					}
 				}
 			%>
 
