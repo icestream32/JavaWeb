@@ -3,10 +3,7 @@ package com.oa.web.action;
 import com.oa.utils.DBUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -75,7 +72,25 @@ public class UserServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("username",username);
 
-            // 重定向至部门列表
+
+            // 登录成功了，并且用户确实选择了“十天内免登录”功能。
+            String value = request.getParameter("getCookie");
+            if ("1".equals(value)) {
+                // 创建Cookie对象，用于存储用户名和密码
+                Cookie cookie1 = new Cookie("username",username);
+                Cookie cookie2 = new Cookie("password", password);
+                // 设置Cookie持续日期
+                cookie1.setMaxAge(60 * 60 * 24 * 10);
+                cookie2.setMaxAge(60 * 60 * 24 * 10);
+                // 设置Cookie关联路径
+                cookie1.setPath(request.getContextPath());
+                cookie2.setPath(request.getContextPath());
+                // 将Cookie响应给浏览器
+                response.addCookie(cookie1);
+                response.addCookie(cookie2);
+            }
+
+            // 成功，跳转至登录页面
             response.sendRedirect(request.getContextPath() + "/dept/list");
         } else {
             // 跳转到登录失败页面内
