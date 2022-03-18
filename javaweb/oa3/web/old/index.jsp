@@ -12,7 +12,7 @@
 	<body>
 		<h1>LOGIN PAGE</h1>
 		<hr>
-		<form action="${pageContext.request.contextPath}/user/login" method="post">
+		<form action="<%=request.getContextPath()%>/user/login" method="post">
 			<label>username</label><input type="text" name="username" > <br>
 			<label>password</label><input type="password" name="password"><br>
 			<input type="checkbox" name="getCookie" value="1"><lable>十天内免登录</lable><br>

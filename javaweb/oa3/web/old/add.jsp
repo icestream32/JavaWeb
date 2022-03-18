@@ -8,9 +8,9 @@
 	</head>
 	<body>
 		<h1>新增部门</h1>
-		<h3>欢迎${username}</h3>
+		<h3>欢迎<%=session.getAttribute("username")%></h3>
 		<hr>
-		<form action="${pageContext.request.contextPath}/dept/add" method="post"/>
+		<form action="<%=request.getContextPath()%>/dept/add" method="post"/>
 		<label>
 			部门编号
 			<input type="text" name="deptno"/>

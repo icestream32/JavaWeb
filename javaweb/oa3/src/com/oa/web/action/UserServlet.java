@@ -33,8 +33,21 @@ public class UserServlet extends HttpServlet {
         // 手动销毁Session对象
         HttpSession session = request.getSession();
         session.invalidate();
+        // 手动销毁Cookie对象
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if ("username".equals(cookie.getName()) || "password".equals(cookie.getName())) {
+                // 设置Cookie的有效期为0，表示删除该Cookie
+                cookie.setMaxAge(0);
+                // 设置Cookie的关联路径，注意一定要和开始设置该Cookie的路径一致，不然删除不了该Cookie
+                cookie.setPath(request.getContextPath());
+                // 响应Cookie给浏览器，这样浏览器会将之前的Cookie覆盖
+                response.addCookie(cookie);
+            }
+        }
+
         // 重定向至登录页面
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        response.sendRedirect(request.getContextPath());
     }
 
     private void doLogin(HttpServletRequest request, HttpServletResponse response)
