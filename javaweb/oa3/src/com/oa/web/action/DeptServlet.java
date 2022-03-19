@@ -30,38 +30,26 @@ public class DeptServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // 登录认证，获取Session对象
-        // 获取session（这个session是不需要新建的）
-        // 只是获取当前session，获取不到这返回null
-        HttpSession session = request.getSession(false);
+        // 获取应用路径,/dept
+        String servletPath = request.getServletPath();
+        // 获取功能路径,/edit
+        String pathInfo = request.getPathInfo();
+        // 拼接字符串
+        StringBuilder stringBuffer = new StringBuilder(servletPath);
+        stringBuffer.append(pathInfo);
+        String path = stringBuffer.substring(0); // 这样path中的字符串即为"/dept/*"的形式了
 
-        response.setContentType("text/html;charset=UTF-8");
-        // 如果当前登录用户不为空且会话域不为空，执行Servlet业务
-        if (session != null && session.getAttribute("username") != null) {
-            // 获取应用路径,/dept
-            String servletPath = request.getServletPath();
-            // 获取功能路径,/edit
-            String pathInfo = request.getPathInfo();
-            // 拼接字符串
-            StringBuilder stringBuffer = new StringBuilder(servletPath);
-            stringBuffer.append(pathInfo);
-            String path = stringBuffer.substring(0); // 这样path中的字符串即为"/dept/*"的形式了
-
-            if ("/dept/list".equals(path)) {
-                doList(request,response);
-            } else if ("/dept/add".equals(path)){
-                doAdd(request,response);
-            } else if ("/dept/update".equals(path)){
-                doUpdate(request,response);
-            } else if ("/dept/delete".equals(path)){
-                doDel(request,response);
-            } else if ("/dept/detail".equals(path)){
-                doDetail(request,response);
-            }
-        } else {
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+        if ("/dept/list".equals(path)) {
+            doList(request,response);
+        } else if ("/dept/add".equals(path)){
+            doAdd(request,response);
+        } else if ("/dept/update".equals(path)){
+            doUpdate(request,response);
+        } else if ("/dept/delete".equals(path)){
+            doDel(request,response);
+        } else if ("/dept/detail".equals(path)){
+            doDetail(request,response);
         }
-
     }
 
     private void doList(HttpServletRequest request, HttpServletResponse response)
@@ -241,6 +229,7 @@ public class DeptServlet extends HttpServlet {
         // 通过获取参数选择转发到哪种页面
         String f = request.getParameter("f");
         // 将部门对象放入请求域中
+        request.setAttribute("deptno",deptno);
         request.setAttribute("dept",dept);
         // 转发
         request.getRequestDispatcher("/" + f + ".jsp").forward(request,response);
